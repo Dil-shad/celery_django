@@ -12,7 +12,7 @@ def send_mail_func(self):
     #timezone.localtime(users.date_time)
     #timedelta(days=2)
     for user in users:
-        mail_subject = "Hi!celery|TESTING"
+        mail_subject = "Hi!This is a test mail(Celery)"
         message = "This is a test"
         to_mail = user.email
         print(to_mail)
@@ -20,3 +20,5 @@ def send_mail_func(self):
                   recipient_list=[to_mail], fail_silently=True)
 
     return "Worked"
+
+

@@ -12,9 +12,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "celery_django.settings")
 
 app = Celery('celery_django')
 app.conf.enable_utc = False
-
-app.conf.update(timezone='Aisa/Kolkata')
-
+app.conf.update(timezone='Asia/Kolkata')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
 
@@ -22,13 +20,11 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.conf.beat_schedule = {
     'send-mail-every-day-at-8':{
         'task':'send_mail_app.tasks.send_mail_func',
-        'schedule': crontab(hour=10, minute=21) #day_of_month=1,month_of_year=1,
+        'schedule': crontab(hour=3, minute=46) #day_of_month=1,month_of_year=1,
         #'args':(2,)
 
-    }
-    
+    } 
 }
-
 app.autodiscover_tasks()
 
 
